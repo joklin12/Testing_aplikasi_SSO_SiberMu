@@ -14,13 +14,9 @@ Penjelasan :
 - Pastikan aplikasi anda ada index.php karena SSO ini akan mengembalikan url yang ada index.php. index.php wajib diarahkan ke "login page", boleh login page menggunakan file index.php tapi boleh juga di buat nama lain misal login.php, jika nama lain pastikan tetap ada index.php dan didalam index.php wajib di arahkan di "login page" anda
 - aplikasi ini sumber terbuka, boleh di modifikasi dan tidak di perkenankan untuk di perjual belikan
 - pengujian akun gunakan:
-	Organisasi : SEKOLAH 1 TESTER 
- 	username : user01 
-	password : user01
-
-	ORGANISASI : SIBERMU
-	username : user02 
-	password : user02
+	Organisasi : SMA 1 TESTING
+ 	username : testing2025
+	password : 123456
 ------------------------------------------------------------------------------
 optional jika login page anda tidak ada index.php
 buat file index.php, isikan kode di bawah ini :
