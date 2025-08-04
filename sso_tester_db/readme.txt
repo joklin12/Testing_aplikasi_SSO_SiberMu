@@ -1,0 +1,28 @@
+Penjelasan :
+- Fungsi aplikasi sso_tester_nodb untuk mengetes/menguji cara koneksi aplikasi lain ke web sso.sibermu.ac.id
+- aplikasi sso_tester_nodb di desain tanpa database, syarat penggunaanya bisa menggunakan web server apache/NginX 
+- Diharapkan developer bisa memahami cara kerja dari sso.sibermu.ac.id sehingga bisa mengimplementasikan ke semua aplikasi yang sudah di buat dengan login menggunakan satu akun saja
+- SSO ini bisa di gunakan untuk banyak aplikasi tanpa batas
+- seluruh data sensitif yang tersimpan di sso.sibermu.ac.id terinkripsi
+- SSO ini berkomunikasi menggunakan token, domain aplikasi dan bisa di filter berdasarkan ORGANISASI (user yang tidak sama dengan organisasinya akan di tolak login)
+- SSO ini testernya organisasi SEKOLAH 1 TESTER, di luar organisasi tersebut akan di tolak login, akun tester sudah disediakan.
+- sso.sibermu.ac.id memiliki fitur memanajemen terpusat berupa suspend per user dan suspend per domain
+- Setiap admin organisasi bisa memanage akun organisasinya secara mandiri (upload, hapus, generate web servis token, manage domain dll) 
+- fungsi utama untuk berkomunikasi ke sso.sibermu.ac.id adalah callback.php untuk dashboard.php, index.php, logout.php sebagai tambahan
+- developer cukup membuat tombol "Login with SSO" kodenya ada di index.php
+- syarat untuk melakukan pengujian ini wajib menggunakan url : localhost/sso_tester_nodb di luar url ini, atau nama lain akan di blok
+- aplikasi ini sumber terbuka, boleh di modifikasi dan tidak di perkenankan untuk di perjual belikan
+- pengujian akun gunakan:
+	Organisasi : SEKOLAH 1 TESTER 
+ 	username : user01 
+	password : user01
+
+	ORGANISASI : SIBERMU
+	username : user02 
+	password : user02
+------------------------------------------------------------------------------
+salam tim BSI (Biro Sistem Informasi) Universitas Siber Muhammadiyah (SiberMu)
+Pengabdian Masyarakat SiberMu :
+Joko Supriyanto M.Kom &
+Andi Suganti M.Kom
+
