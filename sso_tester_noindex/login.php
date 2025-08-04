@@ -11,7 +11,7 @@ if (isset($_SESSION['user'])) {
 $sso_server_url = 'https://sso.sibermu.ac.id'; // SSO Url SiberMu
 $my_app_api_token = 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d'; // token dari aplikasi SSO SiberMu
 
-$callback_url = 'http://lokal.jokode.my.id/sso_tester_noindex/callback.php'; // GANTI SESUAI URL APLIKASI ANDA 
+$callback_url = 'http://localhost/sso_tester_noindex/callback.php'; // GANTI SESUAI URL APLIKASI ANDA 
 $auth_url = $sso_server_url . '/auth.php?redirect_uri=' . urlencode($callback_url) . '&token=' . $my_app_api_token;
 
 // Menyiapkan pesan error untuk ditampilkan
