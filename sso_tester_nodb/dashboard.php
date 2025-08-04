@@ -94,7 +94,7 @@ $logout_url = $sso_server_url . '/logout.php?redirect_uri=' . urlencode($client_
                 <div class="text-center mt-4">
 				<?php
 				// URL Server SSO Anda
-				$sso_server_url = 'https://sso.sibermu.ac.id; // GANTI SESUAI URL ANDA
+				$sso_server_url = 'https://sso.sibermu.ac.id'; // GANTI SESUAI URL ANDA
 
 				// Halaman login aplikasi ini, tempat pengguna akan kembali setelah logout
 				$client_login_page = 'http://localhost/sso_tester_nodb/logout.php'; // GANTI SESUAI URL ANDA
