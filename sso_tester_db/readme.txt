@@ -1,6 +1,6 @@
 Penjelasan :
 - Fungsi aplikasi sso_tester_db untuk mengetes/menguji cara koneksi aplikasi lain ke web sso.sibermu.ac.id
-- aplikasi sso_tester_db di desain menggunakan database, syarat penggunaanya bisa menggunakan web server apache/NginX, database mysql/mariadb
+- aplikasi sso_tester_db di desain menggunakan database (file dn : user_tes_sso_sibermu.sql), syarat penggunaanya bisa menggunakan web server apache/NginX, database mysql/mariadb
 - Diharapkan developer bisa memahami cara kerja dari sso.sibermu.ac.id sehingga bisa mengimplementasikan ke semua aplikasi yang sudah di buat dengan login menggunakan satu akun saja
 - SSO ini bisa di gunakan untuk banyak aplikasi tanpa batas
 - seluruh data sensitif yang tersimpan di sso.sibermu.ac.id terinkripsi
