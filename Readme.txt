@@ -3,8 +3,9 @@ alamat server SSO : https://sso.sibermu.ac.id
 
 Petunjuk pengujian :
 Pilih salah satu 
-	Paling praktis tanpa database pilih folder : sso_tester_nodb
-	Jika ingin menggunakan database pilih folder : sso_tester_db
+	- Paling praktis tanpa database pilih folder : sso_tester_nodb
+	- Jika ingin menggunakan database pilih folder : sso_tester_db
+	- Jika login pagenya tidak menggunakan "index.php" misal login.php pilih folder : sso_tester_noindex
 --------------------------------------------------------------------
 Petunjuk lengkap ada di dalam folder masing-masing
 Petunjuk developer : file intinya cuma satu yaitu callback.php yang lain hanya sebagai pelengkap
