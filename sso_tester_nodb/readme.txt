@@ -39,7 +39,12 @@ header("Location: $loginPath");
 exit;
 
 ------------------------------------------------------------------------------
-
+Struktur File :
+callback.php => fungsi utama komunikasi antara aplikasi dgn SSO Sibermu (meminta data dan menarik data)
+dashboard.php => hasil penarikan data dari SSO ditampilkan
+index.php => Halaman utama login page
+logout.php => keluar dari dashboard
+--------------------------------------------------------------------------------
 salam tim BSI (Biro Sistem Informasi) Universitas Siber Muhammadiyah (SiberMu)
 Pengabdian Masyarakat SiberMu :
 Joko Supriyanto M.Kom &
