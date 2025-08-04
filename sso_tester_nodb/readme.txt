@@ -5,7 +5,7 @@ Penjelasan :
 - SSO ini bisa di gunakan untuk banyak aplikasi tanpa batas
 - seluruh data sensitif yang tersimpan di sso.sibermu.ac.id terinkripsi
 - SSO ini berkomunikasi menggunakan token, domain aplikasi dan bisa di filter berdasarkan ORGANISASI (user yang tidak sama dengan organisasinya akan di tolak login)
-- SSO ini testernya organisasi SEKOLAH 1 TESTER, di luar organisasi tersebut akan di tolak login, akun tester sudah disediakan.
+- SSO ini testernya organisasi SMA 1 TESTING, di luar organisasi tersebut akan di tolak login, akun tester sudah disediakan.
 - sso.sibermu.ac.id memiliki fitur memanajemen terpusat berupa suspend per user dan suspend per domain
 - Setiap admin organisasi bisa memanage akun organisasinya secara mandiri (upload, hapus, generate web servis token, manage domain dll) 
 - fungsi utama untuk berkomunikasi ke sso.sibermu.ac.id adalah callback.php untuk dashboard.php, index.php, logout.php sebagai tambahan
@@ -17,6 +17,11 @@ Penjelasan :
 	Organisasi : SMA 1 TESTING
  	username : testing2025
 	password : 123456
+
+	ORGANISASI : SIBERMU => seharusnya ditolak/tidak bisa login karena di blok
+	username : testing22025
+	password : 123456
+Melihat profile user bisa dari https://sso.sibermu.ac.id masukkan username dan password
 ------------------------------------------------------------------------------
 optional jika login page anda tidak ada index.php
 buat file index.php, isikan kode di bawah ini :
