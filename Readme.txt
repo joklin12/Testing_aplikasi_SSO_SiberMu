@@ -10,6 +10,6 @@ Pilih salah satu
 Petunjuk lengkap ada di dalam folder masing-masing
 Petunjuk developer : file intinya cuma satu yaitu callback.php yang lain hanya sebagai pelengkap
 --------------------------------------------------------------------
-Plugin Moodel = https://github.com/joklin12/Plugin-moodle-SSO-SiberMu
+Plugin Moodle = https://github.com/joklin12/Plugin-moodle-SSO-SiberMu
 Plugin di website resmi Moodle : https://moodle.org/plugins/auth_sso_sibermu (Under Review)
 	
