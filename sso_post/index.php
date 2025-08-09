@@ -19,7 +19,7 @@ $client_app_url = 'http://localhost/sso_post/index.php'; // pastikan url ini did
 $user_data = [
     // Gunakan token API yang valid.
     'api_token' => 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d', //diambil dari sso.sibermu.ac.id dan pastikan switch post aktif
-    'nisn'      => 'man2btl-011', // <-- TAMBAHKAN NISN DI SINI
+    'nisn'      => 'man2btl-011', // <-- TAMBAHKAN ID Unik DI SINI
     'nama'      => 'Zainal Abidin',
     'password'  => '123456',
     'pekerjaan' => 'Siswa',
