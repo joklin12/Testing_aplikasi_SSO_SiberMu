@@ -24,7 +24,7 @@ syarat pentingnya :
 - anda sudah membuat token di sso.sibermu.ac.id
 - domaian anda sudah didaftarkan ke sso.sibermu.ac.id dan pastikan switch "post" kondisi "on"
 - pendaftaran domain harus lengkap/sama persis jika tidak sama maka insert kedatabase sso.sibermu.ac.id bakal gagal, misalkan kalau di contoh ini : http://localhost/sso_post/index.php
-- Untuk institusi dan Organisasi otomatis akan di insert sesuai admin yang didaftarkan atau di kontol oleh super admin. 
+- Untuk institusi dan Organisasi otomatis akan di insert sesuai admin yang didaftarkan atau di kontrol oleh super admin. 
 - Admin tidak bisa mengubah Institusi dan organisasi
 
 -----------------------------------------------------------------------
