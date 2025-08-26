@@ -13,10 +13,10 @@ if (isset($_SESSION['user'])) {
     exit;
 }
 
-// Konfigurasi URL
-$sso_server_url = 'https://sso.sibermu.ac.id'; // SSO Url SiberMu
-$my_app_api_token = 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d'; // token dari aplikasi SSO SiberMu
-$callback_url = 'http://localhost/sso_tester_db/callback.php'; // GANTI SESUAI URL APLIKASI ANDA 
+// --- KONFIGURASI APLIKASI KLIEN ---
+$sso_server_url = 'https://sso.sibermu.ac.id'; // Ganti dengan URL SSO Server Anda
+$my_app_api_token = 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d'; // Token dari aplikasi SSO SiberMu
+$callback_url = 'http://localhost/sso_tester_db/callback.php'; // GANTI SESUAI URL APLIKASI ANDA
 $auth_url = $sso_server_url . '/auth.php?redirect_uri=' . urlencode($callback_url) . '&token=' . $my_app_api_token;
 
 // Menyiapkan pesan error untuk ditampilkan
@@ -37,12 +37,10 @@ if (isset($_GET['error'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login E-Learning</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <style>
@@ -57,7 +55,6 @@ if (isset($_GET['error'])) {
             padding: 2rem;
         }
 
-        /* The Glassmorphism Card */
         .login-card {
             width: 100%;
             max-width: 480px;
@@ -70,9 +67,7 @@ if (isset($_GET['error'])) {
             color: white;
         }
 
-        .login-card .card-body {
-            padding: 4rem;
-        }
+        .login-card .card-body { padding: 4rem; }
 
         .brand-logo {
             width: 100px;
@@ -86,22 +81,10 @@ if (isset($_GET['error'])) {
             align-items: center;
         }
 
-        .brand-logo .bi {
-            font-size: 3.5rem;
-            color: #fff;
-        }
-
-        .card-title {
-            font-weight: 600;
-            font-size: 2rem;
-        }
-
-        .card-text {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.5rem;
-        }
+        .brand-logo .bi { font-size: 3.5rem; color: #fff; }
+        .card-title { font-weight: 600; font-size: 2rem; }
+        .card-text { color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; }
         
-        /* Custom Alert Style */
         .alert-custom {
             background-color: rgba(255, 82, 82, 0.2);
             border: 1px solid rgba(255, 82, 82, 0.4);
@@ -128,19 +111,11 @@ if (isset($_GET['error'])) {
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
         
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
+        .footer-text { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 2rem; }
 
         @media (max-width: 576px) {
-            .login-card .card-body {
-                padding: 2.5rem;
-            }
-            .card-title {
-                font-size: 1.75rem;
-            }
+            .login-card .card-body { padding: 2.5rem; }
+            .card-title { font-size: 1.75rem; }
         }
     </style>
 </head>
@@ -154,7 +129,7 @@ if (isset($_GET['error'])) {
             </div>
             
             <h1 class="card-title">SSO SiberMu dgn Database</h1>
-            <p class="card-text">login page menggunakan index.php </p>
+            <p class="card-text">login page menggunakan index.php</p>
 			<p class="card-text">user : testing2025 | pass : 123456 </p>
 
             <?php if ($errorMessage): ?>
@@ -164,10 +139,8 @@ if (isset($_GET['error'])) {
                 </div>
             <?php endif; ?>
 
-            <div class="d-grid mt-4">
-                 <a href="<?php echo htmlspecialchars($auth_url); ?>" class="btn btn-login">
-                    Login with SSO <i class="bi bi-box-arrow-in-right ms-2"></i>
-                </a>
+            <div class="d-grid mt-4" id="sso-button-container">
+               
             </div>
 
             <div class="footer-text">
@@ -175,7 +148,40 @@ if (isset($_GET['error'])) {
             </div>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil variabel dari PHP
+            const ssoServerUrl = '<?php echo $sso_server_url; ?>';
+            const apiClientToken = '<?php echo $my_app_api_token; ?>';
+            const clientCallbackUrl = '<?php echo $callback_url; ?>';
+            const authUrl = '<?php echo htmlspecialchars($auth_url); ?>';
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            // URL endpoint pengecekan status di server SSO
+            const statusCheckUrl = `${ssoServerUrl}/check_status.php?token=${apiClientToken}&client_url=${encodeURIComponent(clientCallbackUrl)}`;
+            
+            const ssoContainer = document.getElementById('sso-button-container');
+
+            fetch(statusCheckUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'active') {
+                        // Jika aktif, tampilkan tombol login sesuai desain baru
+                        ssoContainer.innerHTML = `<a href="${authUrl}" class="btn btn-login">Login with SSO <i class="bi bi-box-arrow-in-right ms-2"></i></a>`;
+                    } else {
+                        // Jika tidak aktif,
+                    }
+                })
+                .catch(error => {
+                    // Tangani jika terjadi error koneksi
+                    console.error('Error fetching SSO status:', error);
+                    ssoContainer.innerHTML = '<div class="alert alert-custom">Gagal terhubung ke server SSO. Silakan coba lagi nanti.</div>';
+                });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -13,10 +13,12 @@ if (isset($_SESSION['user'])) {
     exit;
 }
 
-// Konfigurasi URL
-$sso_server_url = 'https://sso.sibermu.ac.id'; // SSO Url SiberMu
-$my_app_api_token = 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d'; // token dari aplikasi SSO SiberMu
-$callback_url = 'http://localhost/sso_tester_nodb/callback.php'; // GANTI SESUAI URL APLIKASI ANDA 
+// --- KONFIGURASI APLIKASI KLIEN ---
+$sso_server_url = 'https://sso.sibermu.ac.id'; // Ganti dengan URL SSO Server Anda
+$my_app_api_token = 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d'; // Token dari aplikasi SSO SiberMu
+$callback_url = 'http://localhost/sso_tester_nodb/callback.php'; // GANTI SESUAI URL APLIKASI ANDA
+
+// URL untuk otentikasi SSO
 $auth_url = $sso_server_url . '/auth.php?redirect_uri=' . urlencode($callback_url) . '&token=' . $my_app_api_token;
 
 // Menyiapkan pesan error untuk ditampilkan
@@ -36,7 +38,7 @@ if (isset($_GET['error'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login E-Learning</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -57,13 +59,8 @@ if (isset($_GET['error'])) {
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .login-card .card-body {
-            padding: 3rem;
-        }
-        .login-card .brand-logo {
-            font-size: 3rem;
-            color: #764ba2;
-        }
+        .login-card .card-body { padding: 3rem; }
+        .login-card .brand-logo { font-size: 3rem; color: #764ba2; }
         .btn-login {
             font-weight: 600;
             padding: 0.75rem 1.5rem;
@@ -96,10 +93,8 @@ if (isset($_GET['error'])) {
                 </div>
             <?php endif; ?>
 
-            <div class="d-grid">
-                 <a href="<?php echo htmlspecialchars($auth_url); ?>" class="btn btn-primary btn-login">
-                    🔑 Login with SSO
-                </a>
+            <div class="d-grid" id="sso-button-container">
+                
             </div>
 
             <div class="mt-4">
@@ -108,6 +103,47 @@ if (isset($_GET['error'])) {
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Jalankan skrip setelah seluruh halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Ambil variabel dari PHP
+            const ssoServerUrl = '<?php echo $sso_server_url; ?>';
+            const apiClientToken = '<?php echo $my_app_api_token; ?>';
+            const clientCallbackUrl = '<?php echo $callback_url; ?>';
+            const authUrl = '<?php echo htmlspecialchars($auth_url); ?>';
+
+            // URL endpoint pengecekan status di server SSO
+            const statusCheckUrl = `${ssoServerUrl}/check_status.php?token=${apiClientToken}&client_url=${encodeURIComponent(clientCallbackUrl)}`;
+            
+            // Ambil elemen kontainer tombol
+            const ssoContainer = document.getElementById('sso-button-container');
+
+            // Panggil endpoint menggunakan Fetch API
+            fetch(statusCheckUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Cek status dari response JSON
+                    if (data.status === 'active') {
+                        // Jika aktif, tampilkan tombol login
+                        ssoContainer.innerHTML = `<a href="${authUrl}" class="btn btn-primary btn-login">🔑 Login with SSO</a>`;
+                    } else {
+                        // Jika tidak aktif, tampilkan pesan jikalau diperlukan
+                        
+                    }
+                })
+                .catch(error => {
+                    // Tangani jika terjadi error koneksi atau lainnya
+                    console.error('Error fetching SSO status:', error);
+                    ssoContainer.innerHTML = '<p class="alert alert-danger">Gagal terhubung ke server SSO. Silakan coba lagi nanti.</p>';
+                });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
