@@ -18,7 +18,7 @@ $client_app_url = 'http://localhost/sso_post/index.php'; // pastikan url ini did
 // Data pengguna baru yang akan dikirim.
 $user_data = [
     // Gunakan token API yang valid.
-    'api_token' => 'd48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d', //diambil dari sso.sibermu.ac.id dan pastikan switch post aktif
+    'api_token' => 'token_anda_dari_sso SiberMu', //diambil dari sso.sibermu.ac.id dan pastikan switch "post" aktif - wajib anda jadi admin
     'nisn'      => 'man2btl-011', // <-- TAMBAHKAN ID Unik DI SINI
     'nama'      => 'Zainal Abidin',
     'password'  => '123456',
@@ -92,5 +92,6 @@ if (curl_errno($ch)) {
 curl_close($ch);
 
 echo "</body></html>";
+
 
 ?>
