@@ -21,10 +21,10 @@ Kalau diibaratkan, ini seperti form pendaftaran otomatis yang mengirimkan data k
 -----------------------------------------------------------------------
 syarat pentingnya (gambar telampir) :
 - anda sudah memiliki akun level admin di sso.sibermu.ac.id
-- anda sudah membuat token di sso.sibermu.ac.id
-- domaian anda sudah didaftarkan ke sso.sibermu.ac.id dan pastikan switch "post" kondisi "on"
+- anda sudah membuat token di https://sso.sibermu.ac.id
+- domaian anda sudah didaftarkan ke https://sso.sibermu.ac.id dan pastikan switch "post" kondisi "on"
 - pendaftaran domain harus lengkap/sama persis jika tidak sama maka insert kedatabase sso.sibermu.ac.id bakal gagal, misalkan kalau di contoh ini : http://localhost/sso_post/index.php
-- Untuk institusi dan Organisasi otomatis akan di insert sesuai admin yang didaftarkan atau di kontrol oleh super admin. 
+- Untuk institusi dan Organisasi otomatis akan di insert sesuai admin yang didaftarkan oleh super admin untuk konsistensi data dan bisaa di gunakan sebagai filtering login di aplikasi yang anda buat. 
 - Admin tidak bisa mengubah Institusi dan organisasi
 
 -----------------------------------------------------------------------
