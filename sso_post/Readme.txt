@@ -30,3 +30,17 @@ syarat pentingnya (gambar telampir) :
 -----------------------------------------------------------------------
 Plugin Moodle = https://github.com/joklin12/Plugin-moodle-SSO-SiberMu
 Testing langsung silakan akses di : https://demossosibermu.jokode.my.id/
+-----------------------------------------------------------------------
+Versi PostMan (klik Import -> Raw Text)
+curl --location --request POST 'domain_utama_and/api_create_user.php' \
+--header 'Content-Type: application/json' \
+--header 'Referer: http://localhost/sso_post/index.php' \
+--data-raw '{
+    "api_token": "token_anda_dari sso.sibermu.ac.id",
+    "nisn": "skl-011",
+    "nama": "Zainal Abidin",
+    "password": "123456",
+    "pekerjaan": "Siswa",
+    "no_hp": "081122334455",
+    "alamat": "Jl. Merdeka No. 17, Bandung"
+}'
