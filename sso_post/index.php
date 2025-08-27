@@ -8,7 +8,7 @@
 // -------------------------------------------------------------
 // URL endpoint API yang akan dituju.
 // Ganti dengan URL asli jika sudah di-deploy.
-$api_url = 'https://sso.jokode.my.id/api_create_user.php'; //url server sso sibermu pastikan sso.sibermu.ac.id
+$api_url = 'https://sso.sibermu.ac.id/api_create_user.php'; //url server sso sibermu pastikan sso.sibermu.ac.id
 
 // URL aplikasi klien. PENTING: Domain ini harus terdaftar dan aktif
 // pada `url_terdaftar` untuk token yang digunakan di bawah.
@@ -95,3 +95,4 @@ echo "</body></html>";
 
 
 ?>
+
