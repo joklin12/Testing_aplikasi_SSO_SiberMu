@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-1234-abcde1234567",
+		"name": "SSO SiberMu API Sederhana",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update Password Pengguna",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/sso_upt_pass_jokode/update_password_interface.php",
+						"type": "text",
+						"description": "PENTING: Ganti URL ini dengan URL valid yang terdaftar pada token API Anda. Tanpa header ini, request akan ditolak oleh API."
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"api_token\": \"d48fb3b381d0b9f5xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    \"nisn\": \"skl-011\",\n    \"new_password\": \"ma2154\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sso.sibermu.ac.id/api_update_password.php",
+					"protocol": "https",
+					"host": [
+						"sso",
+						"sibermu",
+						"ac",
+						"id"
+					],
+					"path": [
+						"api_update_password.php"
+					]
+				},
+				"description": "Endpoint untuk memperbarui password user berdasarkan NISN.\n\n**Catatan Penting:**\nPastikan untuk mengubah nilai header `Referer` sesuai dengan URL aplikasi Anda yang sudah terdaftar di SSO. Jika tidak, Anda akan menerima error 403 (Forbidden)."
+			},
+			"response": []
+		}
+	]
+}
