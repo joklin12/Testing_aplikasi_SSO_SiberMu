@@ -55,7 +55,7 @@
 		},
 		{
 			"key": "api_token",
-			"value": "d48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d",
+			"value": "token_anda_dari sso.sibermu.ac.id",
 			"type": "string",
 			"description": "Token API yang digunakan untuk otentikasi."
 		},
@@ -72,4 +72,5 @@
 			"description": "(WAJIB DIUBAH) Masukkan URL yang sudah Anda daftarkan di database untuk token ini."
 		}
 	]
+
 }
