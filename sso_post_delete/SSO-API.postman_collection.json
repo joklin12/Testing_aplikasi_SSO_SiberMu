@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e8a9c1a0-b5f6-4f3b-8c8a-12d3c456e789",
+		"name": "SSO SiberMu API",
+		"description": "Koleksi API untuk layanan SSO SiberMu, dibuat berdasarkan file PHP yang ada.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Archive and Delete User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "{{registered_referer_url}}",
+						"type": "text",
+						"description": "URL asal peminta yang sudah terdaftar dan aktif di database untuk token API ini."
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"api_token\": \"{{api_token}}\",\n    \"nisn\": \"{{nisn_example}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api_delete_user.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api_delete_user.php"
+					]
+				},
+				"description": "Endpoint ini berfungsi untuk mengarsipkan data pengguna ke tabel 'deleted_users' dan kemudian menghapusnya dari tabel 'users' aktif."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://sso.jokode.my.id",
+			"type": "string",
+			"description": "URL dasar dari server API SSO Anda."
+		},
+		{
+			"key": "api_token",
+			"value": "d48fb3b381d0b9f576129e9dae8dd3d9654826aa95099d06c0bbd4f5f09fa33d",
+			"type": "string",
+			"description": "Token API yang digunakan untuk otentikasi."
+		},
+		{
+			"key": "nisn_example",
+			"value": "skl-011",
+			"type": "string",
+			"description": "Contoh NISN pengguna yang akan diarsipkan."
+		},
+		{
+			"key": "registered_referer_url",
+			"value": "http://localhost/sso_post/hapus_user_interface.php",
+			"type": "string",
+			"description": "(WAJIB DIUBAH) Masukkan URL yang sudah Anda daftarkan di database untuk token ini."
+		}
+	]
+}
